@@ -49,14 +49,13 @@ const ImageClassificationPage = (props: Props) => {
     </main>
   );
 
-  // handler functions
+
   async function uploadFiles(event: any) {
     event.preventDefault();
     const formData = new FormData(event.target);
     setLoading(true);
     const response = await axios.post("/api/detect-objects", formData);
     setLoading(false);
-    // TODO: set state variables for url and label
     seturl(response.data.url);
     setlabel(response.data.label);
   }
